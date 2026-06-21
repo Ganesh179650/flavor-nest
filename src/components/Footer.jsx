@@ -99,18 +99,6 @@ export default function Footer() {
 
         </div>
 
-        {/* App Installation Note */}
-        <div className="mt-8 bg-[#013E37]/60 border border-[#D4C97A]/25 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3 text-left">
-            <span className="text-2xl animate-pulse select-none">📲</span>
-            <div>
-              <h5 className="font-display font-bold text-sm text-[#FFEFB3]">Use FlavorNest like an App!</h5>
-              <p className="font-body text-xs text-white/75 leading-relaxed mt-0.5">
-                Click on the browser menu icon (three dots <strong className="text-white">⋮</strong> or share arrow), and select <strong className="text-white">"Add to Home Screen"</strong> or <strong className="text-white">"Install"</strong> for a fullscreen cooking experience.
-              </p>
-            </div>
-          </div>
-        </div>
 
         {/* Thin Butter Divider */}
         <div className="border-t border-[#D4C97A]/20 my-6" />
