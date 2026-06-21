@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #FFFDF0;
+    color: #2A2A2A;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #FFEFB3; }
+  ::-webkit-scrollbar-thumb { background: #013E37; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #F58F20; }
+  ::selection { background: rgba(245,143,32,0.25); color: #013E37; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* CLAYMORPHISM BASE */
+  .clay-card {
+    background: #FFF8D6;
+    border-radius: 24px;
+    border: 2px solid rgba(212, 201, 122, 0.6);
+    box-shadow:
+      0 8px 0 0 rgba(1, 62, 55, 0.15),
+      0 12px 24px rgba(1, 62, 55, 0.10),
+      inset 0 2px 0 rgba(255, 255, 255, 0.8);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .clay-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 14px 0 0 rgba(1, 62, 55, 0.15),
+      0 20px 40px rgba(1, 62, 55, 0.15),
+      inset 0 2px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .clay-btn {
+    background: #013E37;
+    color: #FFEFB3;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    box-shadow: 0 6px 0 0 rgba(0,0,0,0.25), 0 8px 16px rgba(1,62,55,0.3);
+    transition: all 150ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .clay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 0 rgba(0,0,0,0.25), 0 12px 24px rgba(1,62,55,0.35);
+  }
+  .clay-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 0 rgba(0,0,0,0.25), 0 4px 8px rgba(1,62,55,0.2);
+  }
+
+  .clay-btn-ghost {
+    background: transparent;
+    color: #013E37;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 2px solid #013E37;
+    box-shadow: 0 4px 0 0 rgba(1,62,55,0.2);
+    transition: all 150ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .clay-btn-ghost:hover {
+    background: #013E37;
+    color: #FFEFB3;
+    transform: translateY(-2px);
+  }
+
+  .clay-tag {
+    display: inline-block;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 4px 14px;
+    border-radius: 50px;
+    background: #F58F20;
+    box-shadow: 0 4px 0 0 rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+  .clay-tag-leaf {
+    background: #467434;
+    display: inline-block;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 4px 14px;
+    border-radius: 50px;
+    box-shadow: 0 4px 0 0 rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+
+  .clay-input {
+    width: 100%;
+    border-radius: 16px;
+    padding: 0.75rem 1rem;
+    color: #2A2A2A;
+    placeholder-color: #5C5C3D;
+    outline: none;
+    background: rgba(255, 248, 214, 0.9);
+    border: 2px solid rgba(212, 201, 122, 0.7);
+    box-shadow: inset 0 3px 8px rgba(1, 62, 55, 0.08);
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+  .clay-input:focus {
+    border-color: #013E37;
+    box-shadow: inset 0 3px 8px rgba(1,62,55,0.08), 0 0 0 3px rgba(1,62,55,0.15);
+  }
+
+  /* TYPOGRAPHY */
+  .font-display { font-family: 'Playfair Display', Georgia, serif; }
+  .font-script  { font-family: 'Dancing Script', cursive; }
+  .font-body    { font-family: 'DM Sans', sans-serif; }
+
+  /* MARQUEE */
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* BLOB ANIMATION */
+  @keyframes blob-float {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.06); }
+  }
+  .blob { animation: blob-float 6s ease-in-out infinite; }
+}
